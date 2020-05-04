@@ -1,0 +1,4 @@
+data <- read.csv("covid_19_clean_complete.csv")
+#drag data
+df <- data[which(data$Country == Malaysia), ]
+df 
