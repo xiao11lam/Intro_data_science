@@ -37,7 +37,7 @@ server <- function(input, output, session) {
     leaflet(data) %>% 
       setView(lng = 102, lat = 3, zoom = 2)  %>% #setting the view over ~ center of Malaysia
       addTiles() %>% 
-      addCircles(data = data, lat = ~ Latitude, lng = ~ Longitude, weight = 1, radius = ~sqrt(total)*25000, popup = ~as.character(total), label = ~as.character(paste0("Total_Number: ", sep = " ", total)), color = ~pal(total), fillOpacity = 0.5)
+      addCircles(data = data, lat = ~ Latitude, lng = ~ Longitude, weight = 1, radius = 5, popup = ~as.character(total), label = ~as.character(paste0("Total_Number: ", sep = " ", total)), color = ~pal(total), fillOpacity = 0.5)
   })
   
     observe({
