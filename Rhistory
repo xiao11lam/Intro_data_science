@@ -3,7 +3,12 @@ data <- read.csv("covid_19_clean_complete.csv")
 df <- data[which(data$Country == Malaysia), ]
 df 
 
-
+#load libraries
+library(shiny)
+library(leaflet)
+library(dplyr)
+library(leaflet.extras)
+#import data
 data <- read.csv("my_bystate.csv")
 #categorize earthquake 
 data$total <- ifelse(data$total <= 100, "shallow", ifelse(data$total <= 400 | data$total >100, "intermediate", ifelse(data$total > 400, "deep", "other")))
