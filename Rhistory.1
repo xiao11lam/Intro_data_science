@@ -57,7 +57,7 @@ server <- function(input, output, session) {
     proxy <- leafletProxy("mymap", data = data)
     proxy %>% clearMarkers()
     if (input$heat) {
-      proxy %>%  addHeatmap(lng=~longitude, lat=~latitude, intensity = ~total, blur =  10, max = 0.05, radius = 15) 
+      proxy %>%  addHeatmap(lng=~Longitude, lat=~Latitude, intensity = ~total, blur =  10, max = 0.05, radius = 15) 
       }
     else{
       proxy %>% clearHeatmap()
