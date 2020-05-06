@@ -19,7 +19,7 @@ ui <- fluidPage(
 leafletOutput(outputId = "mymap"), 
 absolutePanel(top = 60, left = 20, 
       checkboxInput("markers", "Total", FALSE),
-      checkboxInput("heat", "Heatmap", FALSE)
+      checkboxInput("heat", "Total_clean", FALSE)
     )
 ))
 
@@ -57,7 +57,7 @@ server <- function(input, output, session) {
     proxy <- leafletProxy("mymap", data = data)
     proxy %>% clearMarkers()
     if (input$heat) {
-      proxy %>%  addHeatmap(lng=~Longitude, lat=~Latitude, intensity = ~total, blur =  10, max = 0.05, radius = 15) 
+      proxy %>%  addHeatmap(lng=~Longitude, lat=~Latitude, intensity = ~total_clean, blur =  10, max = 0.05, radius = 15) 
       }
     else{
       proxy %>% clearHeatmap()
