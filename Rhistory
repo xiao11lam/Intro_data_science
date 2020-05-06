@@ -25,7 +25,7 @@ absolutePanel(top = 60, left = 20,
 Server code:
 server <- function(input, output, session) {
  pal <- colorFactor(
-    palette = c('gold', 'orange', 'dark orange', 'orange red', 'red', 'dark red'),
+    palette = c('dark red', 'red', 'orange red', 'orange'),
     domain = data$total)
  pal2 <- colorFactor(
     palette = c('blue', 'yellow', 'red'),
