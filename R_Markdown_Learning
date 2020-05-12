@@ -51,3 +51,10 @@ df = subset(df, select = -c(results) )
 
 ###add one column and category it.
 df$results <- ifelse(df$rating <= 60, "Low", ifelse(df$rating <= 80 & df$rating >60, "Intermediate", ifelse(df$rating > 80 & df$rating <= 90, "High", "Other")))
+input <- df[,c('rating')]
+plot(x = input,y = input,
++      xlab = "Weight",
++      ylab = "Milage",
++      xlim = c(43,82),
++      ylim = c(43,82),		 
++      main = "Weight vs Milage"）
