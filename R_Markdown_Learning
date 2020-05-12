@@ -48,6 +48,6 @@ sum(is.na(attitude$rating))
 ###Plot a simple graph, which will appear on a screen device.
 ###delete one colunmn
 df = subset(df, select = -c(results) )
-###add one column
-df$results <- df$rating
-df$h <- ifelse(df$results <= 60, "Low", ifelse(df$results <= 80 & df$results >60, "intermediate", ifelse(df$results > 80 & df$results <= 90, "deep", "High", "other")))
+
+###add one column and category it.
+df$results <- ifelse(df$results <= 60, "Low", ifelse(df$results <= 80 & df$results >60, "Intermediate", ifelse(df$results > 80 & df$results <= 90, "High", "Other")))
