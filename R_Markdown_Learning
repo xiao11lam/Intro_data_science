@@ -50,4 +50,4 @@ sum(is.na(attitude$rating))
 df = subset(df, select = -c(results) )
 
 ###add one column and category it.
-df$results <- ifelse(df$results <= 60, "Low", ifelse(df$results <= 80 & df$results >60, "Intermediate", ifelse(df$results > 80 & df$results <= 90, "High", "Other")))
+df$results <- ifelse(df$rating <= 60, "Low", ifelse(df$rating <= 80 & df$rating >60, "Intermediate", ifelse(df$rating > 80 & df$rating <= 90, "High", "Other")))
