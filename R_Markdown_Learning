@@ -3,7 +3,7 @@ data()
 library(datasets)
 summary(attitude)
 attitude
-
+df <- attitude
 ### 1. See basic descriptive statistics
 ###    a)	What is the difference between (attitude[4]) and (attitude$learning)
 attitude[4]
@@ -46,3 +46,8 @@ sum(is.na (attitude))
 sum(is.na(attitude$rating))
 
 ###Plot a simple graph, which will appear on a screen device.
+###delete one colunmn
+df = subset(df, select = -c(results) )
+###add one column
+df$results <- df$rating
+df$g <- ifelse(df$results <= 60, "shallow", ifelse(df$results <= 80 | df$results >60, "intermediate", ifelse(df$results > 80 | df$results <= 90, "deep")))
