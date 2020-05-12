@@ -1,2 +1,48 @@
-data <- read.csv("attitude.csv")
+### Import the data "attitude" from the internel datasets lib
+data()
+library(datasets)
+summary(attitude)
+attitude
 
+### 1. See basic descriptive statistics
+###    a)	What is the difference between (attitude[4]) and (attitude$learning)
+attitude[4]
+attitude$learning
+
+###2.	Lists name of variables in a dataset
+names(attitude)
+
+###3.	Calculate number of rows in a dataset
+nrow(attitude)
+
+###4.	Calculate number of columns in a dataset
+ncol(attitude)
+
+###5.	List structure of a dataset
+str(attitude)
+
+###6.	See first 6 rows (by default) of dataset
+head(attitude)
+
+###7.	See first n rows of dataset
+head(attitude, n = 12)
+
+###8.	See all rows but not the last row
+head(attitude, -1)
+
+###9.	See last 6 rows (by default) of a dataset
+tail(attitude)
+
+###10.	See last n rows of dataset
+tail(attitude, n=12)
+
+###11.	See the last n rows but not the first row
+tail(attitude, n=-1)
+
+###12.	Number of missing values
+sum(is.na (attitude))
+
+###13.	Number of missing values in a single variable eg. under the colunmn from: rating
+sum(is.na(attitude$rating))
+
+###Plot a simple graph, which will appear on a screen device.
