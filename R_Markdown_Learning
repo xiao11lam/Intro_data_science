@@ -50,11 +50,13 @@ sum(is.na(attitude$rating))
 df = subset(df, select = -c(results) )
 
 ###add one column and category it.
-df$results <- ifelse(df$rating <= 60, "Low", ifelse(df$rating <= 80 & df$rating >60, "Intermediate", ifelse(df$rating > 80 & df$rating <= 90, "High", "Other")))
-input <- df[,c('rating')]
-plot(x = input,y = input,
-+      xlab = "Weight",
-+      ylab = "Milage",
-+      xlim = c(43,82),
-+      ylim = c(43,82),		 
-+      main = "Weight vs Milage"）
+input <- df$results <- ifelse(df$rating <= 60, "Low", ifelse(df$rating <= 80 & df$rating >60, "Intermediate", ifelse(df$rating > 80 & df$rating <= 90, "High", "Other")))
+input <- df[,c('rating', 'complaints')]
+ggplot(input, aes(x=complaints, y=rating, colour=Category ))+geom_point()
+
+### plot the scatter plot 
+p = ggplot(df, aes(privileges, learning))+
++ geom_point(shape=1) 
+print(p)
+ggsave(p,filename = "p.pdf",width = 12,height = 9)
+
