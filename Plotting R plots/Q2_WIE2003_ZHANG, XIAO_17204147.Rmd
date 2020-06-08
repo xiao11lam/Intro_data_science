@@ -1,0 +1,67 @@
+---
+title: "Q2_ZHANG, XIAO_17204147"
+author: "ZHANG, XIAO (17204147)"
+date: "2020/6/9"
+output:
+  word_document: default
+  html_document: default
+---
+```{r}
+library(ggplot2)
+```
+##Load packages
+```{r}
+data <- read.csv("data.csv")
+```
+
+## Input the dataset from the local disk. The dataset contains the number of the recovered and death cases in Malaysia from 01/22/2020~06/07/2020. 
+
+
+```{r}
+head(data)
+```
+
+## It shows the first 6 rows in the dataset. We can see that the first column implies the date when data collected, second is the Recovered cases and third is Deaths.
+
+```{r}
+tail(data)
+```
+
+## This are the last 6 rows.
+
+```{r}
+dim(data)
+```
+
+## Now we know the dataset totally has 420 rows and 4 columns.
+
+```{r}
+input <- data[,c('Recovered', 'Deaths')]
+ggplot(input, aes(x=Recovered, y=Deaths, col="#C80815" ))+geom_point()
+```
+
+## Plot a scatter plot shows the relationship between total number of the recovered and death cases.From the plot we can know that there is a strong linear relationship between those two variables.
+
+```{r}
+hist(data$Recovered,col="steelblue",xlab="Recovered Cases", main='Histogram plot for Recovered Cases ')
+```
+
+## Plot the histogram for "Recovered Cases" 
+
+```{r}
+hist(data$Deaths,col="steelblue", xlab="Deaths", main='Histogram plot for Dead Cases')
+```
+
+## Plot the histogram for "Death Cases"
+
+```{r}
+df <- data[which(rowSums(data==0)==0),]
+```
+
+## Clean the zero numbers, since too many empty values may distruct the plot.
+
+```{r}
+boxplot(Recovered~Deaths, data=df, xlab='Deaths', ylab = 'Recovered Cases', main='Boxplot for Recovered~Dead Cases', col="red")
+```
+
+## Plot a boxplot to show the realationship between Recovered and Death numbers. It indicates that those two variables has a correlated upheaval relationship. The force to rise up and get down between those two are Complementary.
